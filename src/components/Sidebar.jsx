@@ -58,7 +58,6 @@ const Sidebar = () => {
                                                  {link.name}
                                           </span>
                                    </NavLink>
-
                                   ))}
                                    </div>
 
