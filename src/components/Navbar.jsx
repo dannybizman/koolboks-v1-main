@@ -6,7 +6,7 @@ import {RiNotification3Line} from 'react-icons/ri';
 import {MdKeyboardArrowDown} from 'react-icons/md';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.png';
-import {Cart, Chat, Notification, userProfile} from '.';
+import {Cart, Chat, Notification, UserProfile} from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({title, customFunc, icon, color, dotColor}) =>(
@@ -19,9 +19,9 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) =>(
        >
               <span style={{background: dotColor}}
               className='absolute inline-flex
-              rounded-full h-2 w-2 right-2 top-2'>
-                     {icon}
-              </span>
+              rounded-full h-2 w-2 right-2 top-2'
+              />
+              {icon}
        </button>
        
        </TooltipComponent>
@@ -29,8 +29,25 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) =>(
 
 const Navbar = () => {
 
-       const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick} = useStateContext();
+       const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize} = useStateContext();
+       
+       useEffect(() => {
+       const handleResize = () => setScreenSize (window.innerWidth);
+              window.addEventListener('resize', handleResize);
 
+              handleResize();
+
+              return () => window.removeEventListener('resize', handleResize);
+       }, []);
+
+       useEffect (() => {
+              if(screenSize <= 900) {
+                     setActiveMenu(false);
+              } else {
+                     setActiveMenu(true);
+              }
+       }, [screenSize]);
+              
        return (
               <div className='flex justify-between p-2 md:mx-6 relative'>
                      <NavButton title='Menu' 
@@ -55,7 +72,7 @@ const Navbar = () => {
                      icon={<BsChatLeft />}
                      /> 
                      
-                     <NavButton title='Chat' 
+                     <NavButton title='Notifications' 
                      dotColor='#03C9D7'
                      customFunc={() => handleClick('notification')} 
                      color='orange' 
@@ -66,7 +83,8 @@ const Navbar = () => {
                      content='Profile'
                      position='BottomCenter'>
                             <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
-                            onClick={() => handleClick('userProfile')}>
+                            onClick={() => handleClick('profile')}>
+                                   
                             <img 
                             className='rounded-full w-8 h-8'
                             src={avatar}/>
@@ -82,7 +100,7 @@ const Navbar = () => {
                      {isClicked.cart && <Cart />}
                      {isClicked.chat && <Chat />}
                      {isClicked.notification && <Notification />}
-                     {isClicked.userProfile && <userProfile />}
+                     {isClicked.userProfile && <UserProfile />}
                      
 
               </div>

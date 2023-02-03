@@ -51,17 +51,17 @@ const App = () => {
                                    bg-main-bg dark:bg-main-dark-bg navbar w-full"
             >
               <Navbar />
-            </div>
+            
           </div>
 
           <div>
             <Routes>
               {/* Dashboard */}
               <Route path="/" 
-              element="Dashboard" />
+              element={(<Dashboard />)} />
 
                <Route path="/dashboard" 
-              element="Dashboard" />
+              element={(<Dashboard />)} />
 
               {/* Koolboks Marketing Tools */}
 
@@ -88,6 +88,7 @@ const App = () => {
               <Route path="/stacked" element="Stacked" />
               
             </Routes>
+            </div>
           </div>
         </div>
       </BrowserRouter>
