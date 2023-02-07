@@ -2,7 +2,7 @@ import React from "react";
 import { TbCurrencyNaira } from "react-icons/tb";
 import { GoPrimitiveDot } from "react-icons/go";
 import { Stacked, Pie, Button, SparkLine } from "../components";
-import { earningData, SparklineAreaData, ecomPieChartData } from "../data/dummy";
+import { earningData, SparklineAreaData, ecomPieChartData, stackedPrimaryXAxis } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Dashboard = () => {
@@ -115,6 +115,27 @@ const Dashboard = () => {
                           color='orange'
                           />
                         </div>
+                        <div className='mt-10'>
+
+                        <Button
+                          color="white"
+                          bgColor="orange"
+                          text="Download"
+                          borderRadius="10px"
+                          size="md"
+                        />
+
+                        </div>
+                      </div>
+
+                      <div>
+
+                        <Stacked 
+                        width='320px'
+                        height='360px'
+                       
+                        
+                        />
                       </div>
                   </div>
                </div>

@@ -4,7 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {Dashboard, Orders, Task, Employees, Stacked, Pyramid, Customers, 
-  Pipeline, Area, Bar, Pie, FInancial, ColorPicker, ColorMapping, Editor} from './pages'
+  Pipeline, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor} from './pages'
 
   import { useStateContext } from "./contexts/ContextProvider";
 
@@ -65,27 +65,27 @@ const App = () => {
 
               {/* Koolboks Marketing Tools */}
 
-              <Route path="/orders" element="Orders" />
-              <Route path="/employees" element="Employee" />
-              <Route path="/customers" element="Customers" />
+              <Route path="/orders" element={(<Orders />)} />
+              <Route path="/employees" element={(<Employees />)} />
+              <Route path="/customers" element={(<Customers />)} />
               
               {/* Koolboks Activity Tools */}
               
-              <Route path="/pipeline" element="Pipeline" />
-              <Route path="/editor" element="Editor" />
-              <Route path="/task" element="Task" />
-              <Route path="/color-picker" element="ColorPicker" />
+              <Route path="/pipeline" element={(<Pipeline />)} />
+              <Route path="/editor" element={(<Editor />)} />
+              <Route path="/task" element={(<Task />)} />
+              <Route path="/color-picker" element={(<ColorPicker />)}/>
 
               
               {/* Koolboks Analystics Tools */}
 
-              <Route path="/line" element="Line" />
-              <Route path="/area" element="Area" />
-              <Route path="/bar" element="Bar" />
-              <Route path="/pie" element="Pie" />
-              <Route path="/financial" element="Financial" />
-              <Route path="/pyramid" element="Pyramid" />
-              <Route path="/stacked" element="Stacked" />
+              <Route path="/line" element={(<Line />)} />
+              <Route path="/area" element={(<Area />)}/>
+              <Route path="/bar" element={(<Bar />)} />
+              <Route path="/pie" element={(<Pie />)} />
+              <Route path="/financial" element={(<Financial />)} />
+              <Route path="/pyramid" element={(<Pyramid />)} />
+              <Route path="/stacked" element={(<Stacked />)}/>
               
             </Routes>
             </div>
