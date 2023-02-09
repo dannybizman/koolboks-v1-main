@@ -12,9 +12,10 @@ import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.png';
-import avatar2 from './avatar2.jpg';
+import avatar2 from './avatar2.png';
 import avatar3 from './avatar3.png';
-import avatar4 from './avatar4.jpg';
+import avatar4 from './avatar4.png';
+import avatar5 from './avatar5.png';
 import freezer1 from './freezer1.png';
 import freezer2 from './freezer2.png';
 import freezer3 from './freezer3.png';
@@ -800,7 +801,7 @@ export const medicalproBranding = {
   leaders: [
     {
       image:
-        avatar2,
+        avatar,
     },
     {
       image:
@@ -816,7 +817,7 @@ export const medicalproBranding = {
     },
     {
       image:
-        avatar,
+        avatar5,
     },
   ],
 };
